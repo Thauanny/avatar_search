@@ -1,5 +1,3 @@
-import 'package:avatar_search/src/components/avatar_list.dart';
-import 'package:avatar_search/src/views/avatars.dart';
 import 'package:avatar_search/src/views/home_page.dart';
 import 'package:avatar_search/src/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
@@ -20,17 +18,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     print(controller.avatars.length);
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Personagens de avatar a lenda de Aang',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      routes: {
-        '/': (context) => MyHomePage(title: 'Lista'),
-        '/menu': (context) => HomePage(),
-        '/avatars': (context) => Avatars(
-              controller: controller,
-            ),
-      },
+      home: MyHomePage(title: 'Personagens de avatar a lenda de Aang'),
     );
   }
 }
@@ -48,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final controller = HomeController();
 
   Widget get _success {
-    return HomePage();
+    return HomePage(controller: controller);
   }
 
   Widget get _error {

@@ -1,18 +1,20 @@
-import 'package:avatar_search/src/components/avatar_list.dart';
+import 'package:avatar_search/src/components/allchars_list.dart';
 import 'package:avatar_search/src/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 
-class Avatars extends StatelessWidget {
-  Avatars({this.controller});
+class AllChars extends StatelessWidget {
+  AllChars({this.controller});
   HomeController controller;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Avatares registrados'),
+        title: Text('Personagens registrados'),
       ),
-      body: AvatarList(controller: controller),
+      body: AllCharsList(
+        controller: controller,
+      ),
     );
   }
 }

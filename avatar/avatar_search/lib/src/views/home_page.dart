@@ -1,6 +1,12 @@
+import 'package:avatar_search/src/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 
+import 'allchars.dart';
+import 'avatars.dart';
+
 class HomePage extends StatelessWidget {
+  HomePage({this.controller});
+  HomeController controller;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,9 +18,25 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.all(15.0),
           child: ElevatedButton(
               onPressed: () => {
-                    Navigator.pushNamed(context, '/avatars'),
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                Avatars(controller: controller)))
                   },
               child: Text('Todos os Avatars')),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: ElevatedButton(
+              onPressed: () => {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                AllChars(controller: controller)))
+                  },
+              child: Text('Todos os personagens')),
         ),
       ],
     ));

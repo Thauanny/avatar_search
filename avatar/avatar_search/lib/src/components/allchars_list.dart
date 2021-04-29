@@ -1,13 +1,10 @@
-import 'package:avatar_search/src/controllers/home_controller.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:avatar_search/src/controllers/home_controller.dart';
 
-class AvatarList extends StatelessWidget {
-  AvatarList({this.controller});
-
+class AllCharsList extends StatelessWidget {
+  AllCharsList({this.controller});
   HomeController controller;
 
-  @override
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
@@ -15,7 +12,7 @@ class AvatarList extends StatelessWidget {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: controller.avatars.length,
+              itemCount: controller.allchars.length,
               itemBuilder: (context, index) {
                 showImg(var char) {
                   try {
@@ -26,7 +23,8 @@ class AvatarList extends StatelessWidget {
                   }
                 }
 
-                var character = controller.avatars[index];
+                var character = controller.allchars[index];
+                print(controller.allchars[index]);
                 return Column(
                   children: [
                     Padding(

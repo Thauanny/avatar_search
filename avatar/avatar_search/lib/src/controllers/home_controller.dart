@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 
 class HomeController {
   List<AvatarModel> avatars = [];
+  List<AvatarModel> allchars = [];
   final AvatarRepository _repository;
   final state = ValueNotifier<HomeState>(HomeState.start);
 
@@ -13,7 +14,8 @@ class HomeController {
   Future start() async {
     state.value = HomeState.loading;
     try {
-      avatars = await _repository.fetch();
+      avatars = await _repository.fetchAvatars();
+      allchars = await _repository.fetchAllchars();
       state.value = HomeState.sucess;
     } catch (e) {
       state.value = HomeState.error;

@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    print(this.controller.avatars.length);
+    print(controller.avatars.length);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
         '/': (context) => MyHomePage(title: 'Lista'),
         '/menu': (context) => HomePage(),
         '/avatars': (context) => Avatars(
-              controller: this.controller,
+              controller: controller,
             ),
       },
     );

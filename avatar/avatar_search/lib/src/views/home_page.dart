@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Scaffold(
+        body: Column(
       children: [
         Image.network(
             "https://cdn.vox-cdn.com/thumbor/RU8MZ6zUB7rlLXL56v52wX_pJUM=/0x0:1200x923/1200x800/filters:focal(504x366:696x558)/cdn.vox-cdn.com/uploads/chorus_image/image/68878445/1399063.0.jpg"),
@@ -16,6 +17,6 @@ class HomePage extends StatelessWidget {
               child: Text('Todos os Avatars')),
         ),
       ],
-    );
+    ));
   }
 }

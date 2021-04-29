@@ -1,0 +1,104 @@
+import 'package:avatar_search/src/components/avatar_list.dart';
+import 'package:avatar_search/src/views/avatars.dart';
+import 'package:avatar_search/src/views/home_page.dart';
+import 'package:avatar_search/src/controllers/home_controller.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      routes: {
+        '/': (context) => MyHomePage(title: 'Lista'),
+        '/menu': (context) => HomePage(),
+        '/avatars': (context) => Avatars(),
+      },
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final controller = HomeController();
+
+  Widget get _success {
+    return AvatarList();
+  }
+
+  Widget get _error {
+    return Center(
+      child: ElevatedButton(
+        onPressed: () {
+          controller.start();
+        },
+        child: Text('Tente Novamente'),
+      ),
+    );
+  }
+
+  Widget get _loading {
+    return Center(child: CircularProgressIndicator());
+  }
+
+  Widget get _start {
+    return Container();
+  }
+
+  stateManagement<Widget>(HomeState state) {
+    switch (state) {
+      case HomeState.start:
+        return _start;
+      case HomeState.error:
+        return _error;
+      case HomeState.loading:
+        return _loading;
+      case HomeState.sucess:
+        return _success;
+      default:
+        return _start;
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    controller.start();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: AnimatedBuilder(
+        child: Text("Teste"),
+        animation: controller.state,
+        builder: (context, child) {
+          return stateManagement(controller.state.value);
+        },
+      ),
+    );
+  }
+}

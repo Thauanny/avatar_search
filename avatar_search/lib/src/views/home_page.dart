@@ -1,4 +1,3 @@
-import 'package:avatar_search/src/components/avatar_list.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,7 +15,6 @@ class HomePage extends StatelessWidget {
                   },
               child: Text('Todos os Avatars')),
         ),
-        AvatarList(),
       ],
     );
   }

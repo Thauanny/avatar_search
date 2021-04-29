@@ -2,16 +2,13 @@ import 'package:avatar_search/src/controllers/home_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AvatarList extends StatefulWidget {
-  @override
-  _AvatarListState createState() => _AvatarListState();
-}
+class AvatarList extends StatelessWidget {
+  HomeController controller;
 
-class _AvatarListState extends State<AvatarList> {
-  final controller = HomeController();
-
+  AvatarList({this.controller});
   @override
   Widget build(BuildContext context) {
+    print(controller.avatars.length);
     return Container(
       height: 400,
       child: Column(

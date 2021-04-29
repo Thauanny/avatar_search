@@ -14,8 +14,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final controller = HomeController();
+
   @override
   Widget build(BuildContext context) {
+    print(this.controller.avatars.length);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -24,7 +27,9 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/': (context) => MyHomePage(title: 'Lista'),
         '/menu': (context) => HomePage(),
-        '/avatars': (context) => Avatars(),
+        '/avatars': (context) => Avatars(
+              controller: this.controller,
+            ),
       },
     );
   }
@@ -43,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final controller = HomeController();
 
   Widget get _success {
-    return AvatarList();
+    return HomePage();
   }
 
   Widget get _error {

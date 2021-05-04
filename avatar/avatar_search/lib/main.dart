@@ -18,11 +18,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     print(controller.avatars.length);
     return MaterialApp(
-      title: 'Personagens de avatar a lenda de Aang',
+      title: 'Personagens de: Avatar',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Personagens de avatar a lenda de Aang'),
+      home: MyHomePage(title: 'Personagens de: Avatar'),
     );
   }
 }

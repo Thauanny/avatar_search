@@ -1,3 +1,9 @@
-# avatar_search
+# Estudos com Flutter
 
-## Aplicação feita em flutter para mostrar os personagens de avatar a lenda de Aang
+Projeto feito em flutter - web e app - para exibir personagens do desenho "Avatar"
+
+## Executar
+
+```
+flutter run
+```
